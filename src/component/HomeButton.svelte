@@ -4,6 +4,8 @@
 
 <style lang="scss">
 	.HomeButton {
+		flex-basis: calc(50% - 0.5rem);
+
 		background-color: hsla(0, 0%, 100%, 0.5);
 		transition: all 300ms;
 		border: 2px solid;

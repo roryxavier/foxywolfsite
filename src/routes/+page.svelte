@@ -14,18 +14,18 @@
 	let show = false;
 	onMount(() => (show = true));
 
-	const linkList = ['Con Visited', 'Timeline', 'Gallery', 'Travel Map'];
+	const linkList = ['About Us', 'Timeline', 'Con Visited', 'Travel Map', 'Gallery'];
 </script>
 
 {#if show}
 	<div
-		class="Content m-auto p-6 pb-16 gap-8 flex flex-col items-center justify-center"
+		class="Content m-auto p-6 pb-16 gap-12 flex flex-col items-center justify-center"
 		transition:fade={{ delay: 250, duration: 1500 }}
 	>
 		<div class="flex flex-row items-center justify-center gap-5">
-			<HomeHeadshot src={rory} alt="Rory Badge" />
+			<HomeHeadshot src={rory} alt="Rory Badge" href="https://rorywolf.net/" target="_blank" />
 			<HomeHeart />
-			<HomeHeadshot src={jimmy} alt="Jimmy Badge" />
+			<HomeHeadshot src={jimmy} alt="Jimmy Badge" href="http://jimmychane.com" target="_blank" />
 		</div>
 
 		<CardText>
@@ -39,8 +39,8 @@
 			</div>
 		</CardText>
 
-		<div class="Buttons w-full gap-2 grid">
-			{#each linkList as link} <HomeButton>{link}</HomeButton> {/each}
+		<div class="Buttons w-full gap-2 flex justify-center">
+			{#each linkList.reverse() as link} <HomeButton>{link}</HomeButton> {/each}
 		</div>
 	</div>
 {/if}
@@ -50,7 +50,8 @@
 		max-width: 35rem;
 	}
 	.Buttons {
-		grid-template-columns: repeat(auto-fill, minmax(14rem, 1fr));
+		flex-direction: row;
+		flex-wrap: wrap-reverse;
 	}
 
 	@import url(https://fonts.bunny.net/css?family=montserrat:500);

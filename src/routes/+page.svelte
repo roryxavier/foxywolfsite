@@ -1,6 +1,7 @@
 <script>
 	import CardText from '../component/CardText.svelte';
 
+	import HomeActionbar from '../component/HomeActionbar.svelte';
 	import HomeHeadshot from '../component/HomeHeadshot.svelte';
 	import HomeHeart from '../component/HomeHeart.svelte';
 	import HomeButton from '../component/HomeButton.svelte';
@@ -18,29 +19,33 @@
 </script>
 
 {#if show}
-	<div
-		class="Content m-auto p-6 pb-16 gap-12 flex flex-col items-center justify-center"
-		transition:fade={{ delay: 250, duration: 1500 }}
-	>
-		<div class="flex flex-row items-center justify-center gap-5">
-			<HomeHeadshot src={rory} alt="Rory Badge" href="https://rorywolf.net/" target="_blank" />
-			<HomeHeart />
-			<HomeHeadshot src={jimmy} alt="Jimmy Badge" href="http://jimmychane.com" target="_blank" />
-		</div>
+	<div class="Layout flex w-full flex-col">
+		<HomeActionbar title="Foxy & Wolfy" />
 
-		<CardText>
-			<div class="gap-4 p-4 flex items-center text-center flex-col">
-				<p>Rory and Jimmy's Furry Memory Lane</p>
-				<p>
-					A journey celebrating our memories and milestones as a blue wolf and yellow fox furry
-					couple.
-				</p>
-				<p>Join us and create new memories!</p>
+		<div
+			class="Content m-auto p-6 pb-16 gap-12 flex flex-col items-center justify-center"
+			transition:fade={{ delay: 250, duration: 1500 }}
+		>
+			<div class="flex flex-row items-center justify-center gap-5">
+				<HomeHeadshot src={rory} alt="Rory Badge" href="https://rorywolf.net/" target="_blank" />
+				<HomeHeart />
+				<HomeHeadshot src={jimmy} alt="Jimmy Badge" href="http://jimmychane.com" target="_blank" />
 			</div>
-		</CardText>
 
-		<div class="Buttons w-full gap-2 flex justify-center">
-			{#each linkList.reverse() as link} <HomeButton>{link}</HomeButton> {/each}
+			<CardText>
+				<div class="gap-4 p-4 flex items-center text-center flex-col">
+					<p>Rory and Jimmy's Furry Memory Lane</p>
+					<p>
+						A journey celebrating our memories and milestones as a blue wolf and yellow fox furry
+						couple.
+					</p>
+					<p>Join us and create new memories!</p>
+				</div>
+			</CardText>
+
+			<div class="Buttons w-full gap-2 flex justify-center">
+				{#each linkList.reverse() as link} <HomeButton>{link}</HomeButton> {/each}
+			</div>
 		</div>
 	</div>
 {/if}
@@ -48,10 +53,11 @@
 <style lang="scss">
 	.Content {
 		max-width: 35rem;
-	}
-	.Buttons {
-		flex-direction: row;
-		flex-wrap: wrap-reverse;
+
+		.Buttons {
+			flex-direction: row;
+			flex-wrap: wrap-reverse;
+		}
 	}
 
 	@import url(https://fonts.bunny.net/css?family=montserrat:500);

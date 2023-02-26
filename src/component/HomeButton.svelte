@@ -1,6 +1,18 @@
-<button class="HomeButton py-3 px-6 font-semibold text-black rounded-lg">
-	<slot />
-</button>
+<script lang="ts">
+	export let title: string = '';
+	export let href: string = '';
+	export let target: string = '';
+</script>
+
+{#if href.length}
+	<a class="HomeButton py-3 px-6 font-semibold text-black text-center rounded-lg" {href} {target}>
+		{title}
+	</a>
+{:else}
+	<button class="HomeButton py-3 px-6 font-semibold text-black rounded-lg">
+		<span>{title}</span>
+	</button>
+{/if}
 
 <style lang="scss">
 	.HomeButton {

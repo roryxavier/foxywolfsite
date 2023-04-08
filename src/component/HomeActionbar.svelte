@@ -9,6 +9,19 @@
 	let title: string = '';
 	let scrollTop: number = 0;
 	let isBackable: boolean = false;
+	let selfHref = '';
+
+	export let onLinkChange = (href = '') => {};
+
+	let onSelfLinkChange = (href = '') => {
+		onLinkChange(href);
+		selfHref = href;
+	};
+
+	const setTitleOfLink = (link = { title: '' }) => {
+		title =
+			link && typeof link.title === 'string' && link.title.length ? link.title : 'Foxy & Wolfy';
+	};
 
 	const invalidateScrollTop = () => {
 		const html: HTMLHtmlElement | null = document.querySelector('html');
@@ -27,14 +40,17 @@
 
 		const lastName = pathnames.length ? pathnames[pathnames.length - 1] : '';
 		const link = LinkList.find((link) => link.href === lastName);
-		title = link && typeof link.title === 'string' ? link.title : '';
+		setTitleOfLink(link);
 	};
 	const invalidateTitle = () => {
 		setTimeout(() => {
 			const pathnames = getPathnames();
 			const lastName = pathnames.length ? pathnames[pathnames.length - 1] : '';
 			const link = LinkList.find((link) => link.href === lastName);
-			title = link && typeof link.title === 'string' ? link.title : 'Foxy & Wolfy';
+			setTitleOfLink(link);
+
+			onSelfLinkChange(link ? link.href : '');
+			invalidateBackable();
 		}, 500);
 	};
 	const clickBack = () => {
@@ -67,9 +83,9 @@
 </script>
 
 <div
-	class="Actionbar {scrollTop > 0
-		? 'Actionbar-background'
-		: ''} w-full flex flex-row items-center justify-center"
+	class="Actionbar w-full flex flex-row items-center justify-center"
+	parentIsHome={`${selfHref === ''}`}
+	parentScrolledUp={`${scrollTop > 0}`}
 >
 	{#if isBackable}
 		<div class="Actionbar-ThemeButton aspect-square flex items-center justify-center">
@@ -99,14 +115,21 @@
 
 		transition: all 0.2s;
 
-		background-color: hsla(200, 60%, 97%, 0.2);
-
 		.Actionbar-ThemeButton {
 			height: inherit;
+			margin-right: -1rem;
 		}
 	}
-	.Actionbar-background {
+
+	.Actionbar[parentIsHome='true'] {
+		background: hsla(200, 60%, 97%, 0.2);
+	}
+	.Actionbar[parentIsHome='false'] {
+		background: white;
+	}
+
+	.Actionbar[parentScrolledUp='true'] {
 		color: white;
-		background-color: hsla(0, 0%, 0%, 0.98);
+		background: hsla(0, 0%, 0%, 0.98);
 	}
 </style>

@@ -44,7 +44,7 @@
 		}
 
 		.Icon {
-			--size: 1.2rem;
+			--size: 1.1rem;
 			width: var(--size);
 			height: var(--size);
 			transition: all 200ms;

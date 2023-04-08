@@ -1,11 +1,14 @@
 <script lang="ts">
-	import ImageHeader from '../../assets/kanotsu_moon-HalfBody+SPStyle+1Char+Backdrop(30-06-2022).png';
+	import ImageHeader from '../../assets/kanotsu_moon-HalfBody+SPStyle+1Char+Backdrop(30-06-2022) w520h416.png';
 	import Section from './Section.svelte';
 	import SectionTitle from './SectionTitle.svelte';
 	import Row from './Row.svelte';
 </script>
 
-<div class="p-6 flex flex-col items-center gap-6">
+<div
+	class="PageAbout p-6 flex flex-col items-center gap-8"
+	style="min-height: 100dvh; background: var(--background)"
+>
 	<img class="w-full max-w-xs rounded-xl" src={ImageHeader} alt="Header Image" />
 
 	<p class="max-w-xl">
@@ -23,19 +26,36 @@
 
 	<Section>
 		<SectionTitle>Reference Link</SectionTitle>
-		<Row title="Rory Xavier" clickables={[{ title: 'Link' }]} />
-		<Row title="Jimmy Fox" clickables={[{ title: 'Link' }]} />
+		<Row title="Rory Xavier" menus={[{ title: 'Visit', href: 'https://ref.rorywolf.net/' }]} />
 	</Section>
 
 	<Section>
 		<SectionTitle>Social Link</SectionTitle>
 		<Row
 			title="Rory Xavier"
-			clickables={[{ title: 'Logo Social Link' }, { title: 'Logo Social Link' }]}
+			menus={[
+				{ title: 'Twitter', href: 'https://twitter.com/rory_xavi' },
+				{ title: 'Telegram', href: 'https://t.me/RoryXavier' }
+			]}
 		/>
 		<Row
 			title="Jimmy Fox"
-			clickables={[{ title: 'Logo Social Link' }, { title: 'Logo Social Link' }]}
+			menus={[
+				{ title: 'Twitter', href: 'https://twitter.com/jimmykajun' },
+				{ title: 'Telegram', href: 'https://t.me/Jimmy612' }
+			]}
 		/>
 	</Section>
+
+	<Section>
+		<SectionTitle>Websites</SectionTitle>
+		<Row title="Rory Xavier" menus={[{ title: 'Visit', href: 'https://rorywolf.net/' }]} />
+		<Row title="Jimmy Fox" menus={[{ title: 'Visit', href: 'http://jimmychane.com/' }]} />
+	</Section>
 </div>
+
+<style lang="scss">
+	.PageAbout {
+		--background: #eaf3f8;
+	}
+</style>

@@ -1,20 +1,25 @@
-export default class {
+import type TierEvent from './TierEvent';
+
+export default class ConEvent {
 	icon: String = '';
 	title: String = '';
 	datetime: String = '';
 
 	theme: String = '';
 	guestOfHonor: String = '';
-	registrationTier: String = '';
+	tierInfo: String = '';
+	tierEvents: TierEvent[] = [];
 
 	setIcon(icon: String = '') {
 		this.icon = icon;
 		return this;
 	}
+
 	setTitle(title: String = '') {
 		this.title = title;
 		return this;
 	}
+
 	setDateTime(datetime: String = '') {
 		this.datetime = datetime;
 		return this;
@@ -24,12 +29,19 @@ export default class {
 		this.theme = theme;
 		return this;
 	}
+
 	setGuestOfHonor(guestOfHonor: String = '') {
 		this.guestOfHonor = guestOfHonor;
 		return this;
 	}
-	setRegistrationTier(registrationTier: String = '') {
-		this.registrationTier = registrationTier;
+
+	setTierInfo(tierInfo: String = '') {
+		this.tierInfo = tierInfo;
+		return this;
+	}
+
+	addRegistrationTier(tierEvent: TierEvent) {
+		this.tierEvents.push(tierEvent);
 		return this;
 	}
 
@@ -37,7 +49,7 @@ export default class {
 		return [
 			{ title: 'Theme', subTitle: this.theme },
 			{ title: 'Guest of Honor', subTitle: this.guestOfHonor },
-			{ title: 'Registration Tier', subTitle: this.registrationTier }
+			{ title: 'Registration Tier', subTitle: this.tierInfo }
 		].filter((detail) => {
 			return detail.subTitle.length;
 		});

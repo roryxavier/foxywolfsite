@@ -11,7 +11,7 @@
 <style lang="scss">
 	.RowMenu {
 		width: 10rem;
-      width: 100%;
+		width: 100%;
 		padding: 0.5rem 0.25rem;
 
 		font-size: 0.875rem;

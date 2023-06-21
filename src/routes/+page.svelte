@@ -8,8 +8,12 @@
 	import rory from '../assets/rory.webp';
 	import jimmy from '../assets/jimmy.webp';
 
-	import LinkList from '../LinkList';
+	import LinkList from '../model/LinkList';
 </script>
+
+<svelte:head>
+	<title>Foxy & Wolf</title>
+</svelte:head>
 
 <div
 	class="w-full flex flex-col items-center justify-start"

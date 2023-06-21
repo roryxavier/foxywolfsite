@@ -5,6 +5,10 @@
 	import Row from './Row.svelte';
 </script>
 
+<svelte:head>
+	<title>About Us</title>
+</svelte:head>
+
 <div
 	class="PageAbout p-6 flex flex-col items-center gap-8"
 	style="min-height: 100dvh; background: var(--background)"
@@ -12,16 +16,21 @@
 	<img class="w-full max-w-xs rounded-xl" src={ImageHeader} alt="Header Image" />
 
 	<p class="max-w-xl">
-		Lorem ipsum dolor sit amet, consectetur adipiscing elit. In ut mi ut augue tempor fringilla.
-		Nullam faucibus mi quis eros dictum suscipit. Quisque in ex placerat, ultrices purus vel,
-		fermentum justo. Curabitur venenatis lectus nec sem tristique pellentesque. Mauris iaculis,
-		nulla tincidunt lacinia rutrum, nulla lectus posuere mi, in condimentum lectus nisl at ante. Sed
-		malesuada, quam eu accumsan placerat, turpis sem sodales diam, id laoreet magna odio in metus.
-		Maecenas id cursus massa, sit amet elementum urna. Proin tristique est at libero tristique
-		ultrices. Quisque vel felis sit amet ante pretium ornare. Nunc vel leo sed velit ornare
-		ultricies. Nam sagittis massa ut iaculis congue. Praesent sed elit ut sapien faucibus mattis ut
-		et diam. Morbi ut lacus finibus, tempor lectus pellentesque, consequat velit. Aenean lacus
-		magna, iaculis nec sapien et, sodales vulputate lacus. Aliquam a nunc in urna ultrices cursus.
+		Hello, I'm Rory, a blue wolf, and right next to me is Jimmy, a yellow fox. We have been dating
+		since April 2, 2021. We are both coders and have collaborated to build this website together.
+		The purpose of this website is to serve as a dedicated memory lane for us, capturing our travels
+		and experiences at furry conventions.
+	</p>
+
+	<p class="max-w-xl">
+		Please feel free to explore the various pages we have created. You will find a timeline
+		highlighting the significant milestones of our relationship, a gallery showcasing our artwork,
+		and even a travel map documenting the places we have visited.
+	</p>
+
+	<p class="max-w-xl">
+		Thank you for taking the time to visit our website. We hope you enjoy browsing through our
+		memories. Have a fantastic day!
 	</p>
 
 	<Section>

@@ -5,33 +5,46 @@
 	import furum from '../../assets/furum.png';
 	import littleisland from '../../assets/littleisland.png';
 
-	import ConEvent from '../../ConEvent';
+	import ConEvent from '../../model/Con/ConEvent';
 
 	const eventSections = [
 		{
 			title: 'Upcoming',
 			events: [
 				new ConEvent()
-					.setIcon(littleisland)
-					.setTitle('Little Island Furcon - LIFC')
-					.setDateTime('10-11 June 2022')
-					.setTheme('Swrods & Sorcery')
-					.setGuestOfHonor('Daza | Fursuit Maker')
-					.setRegistrationTier('Hero | Super Sponser'),
-				new ConEvent().setIcon(furum).setTitle('Fur Upon Malaysia - FURUM').setDateTime('2023')
+					.setIcon(furum)
+					.setTitle('Fur Upon Malaysia - FURUM')
+					.setDateTime('09-10 December 2023')
+					.setTheme('Space')
+					.setGuestOfHonor('Kékéflipnote | 2D Animation Artist')
+					.setTierInfo('Rory:Commander(Super Sponsor) Jimmy:Cadet(Standard)')
 			]
 		},
 		{
 			title: 'Visited',
 			events: [
 				new ConEvent()
+					.setIcon(littleisland)
+					.setTitle('Little Island Furcon - LIFC')
+					.setDateTime('10-11 June 2023')
+					.setTheme('Swrods & Sorcery')
+					.setGuestOfHonor('Daza | Fursuit Maker')
+					.setTierInfo('Rory:Adventure(Sponsor) Jimmy:Mercenary(Attendee)'),
+				new ConEvent()
 					.setIcon(furum)
 					.setTitle('Fur Upon Malaysia - FURUM')
 					.setDateTime('10-11 December 2022')
+					.setTheme('Con Of The Lost')
+					.setGuestOfHonor('Zephyxus (Zephy) | Furry Artist')
+					.setTierInfo('Rory:Standard Jimmy:Standard')
 			]
 		}
 	];
 </script>
+
+<svelte:head>
+	<title>Con Visited</title>
+</svelte:head>
 
 <div class="PageCons">
 	<div

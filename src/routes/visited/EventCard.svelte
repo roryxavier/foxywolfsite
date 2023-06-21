@@ -1,8 +1,7 @@
 <script lang="ts">
 	import EventCardIcon from './EventCard-Icon.svelte';
 	import EventCardArrow from './EventCard-Arrow.svelte';
-
-	import type ConEvent from '../../ConEvent';
+	import type ConEvent from '../../model/Con/ConEvent';
 
 	export let conEvent: ConEvent;
 

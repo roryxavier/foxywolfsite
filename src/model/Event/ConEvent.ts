@@ -7,7 +7,7 @@ export default class ConEvent {
 
 	theme: String = '';
 	guestOfHonor: String = '';
-	tierInfo: String = '';
+	tierInfo: String | String[] = '';
 	tierEvents: TierEvent[] = [];
 
 	setIcon(icon: String = '') {
@@ -35,7 +35,7 @@ export default class ConEvent {
 		return this;
 	}
 
-	setTierInfo(tierInfo: String = '') {
+	setTierInfo(tierInfo: String | String[] = '') {
 		this.tierInfo = tierInfo;
 		return this;
 	}

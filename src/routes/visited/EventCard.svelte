@@ -1,7 +1,7 @@
 <script lang="ts">
 	import EventCardIcon from './EventCard-Icon.svelte';
 	import EventCardArrow from './EventCard-Arrow.svelte';
-	import type ConEvent from '../../model/Con/ConEvent';
+	import type ConEvent from '../../model/Event/ConEvent';
 
 	export let conEvent: ConEvent;
 
@@ -9,16 +9,8 @@
 </script>
 
 {#if conEvent}
-	<div
-		class="EventCard w-full flex flex-col items-stretch justify-start rounded-xl transition overflow-hidden"
-		isExpand={`${isExpand}`}
-	>
-		<button
-			class="w-full flex flex-row items-center justify-stretch gap-3 cursor-pointer"
-			on:click={() => {
-				isExpand = !isExpand;
-			}}
-		>
+	<div class="EventCard" isExpand={`${isExpand}`}>
+		<button class="EventCard-header" on:click={() => (isExpand = !isExpand)}>
 			<EventCardIcon src={conEvent.icon} />
 
 			<div class="w-full flex flex-col items-start grow-1 justify-center text-start">
@@ -29,78 +21,114 @@
 			<EventCardArrow rotate180={isExpand} isShowing={isExpand || !!conEvent.getDetails().length} />
 		</button>
 
-		{#if isExpand}
-			{#if conEvent.getDetails().length}
-				<div
-					class="EventCard-Details flex flex-row"
-					style="border-top: 1px solid; border-color: inherit"
-				>
-					{#each conEvent.getDetails() as detail}
-						<div>
-							<span class="title">{detail.title}</span>
-							<span class="subtitle">{detail.subTitle}</span>
-						</div>
-					{/each}
+		<div class="EventCard-expandable">
+			<div class="EventCard-expandable-body">
+				<div class="EventCard-Details">
+					{#if conEvent.getDetails().length}
+						{#each conEvent.getDetails() as detail}
+							<div>
+								<span class="title">{detail.title}</span>
+								<div class="subtitles">
+									{#each Array.isArray(detail.subTitle) ? detail.subTitle : [detail.subTitle] as subTitle}
+										<p>{subTitle}</p>
+									{/each}
+								</div>
+							</div>
+						{/each}
+					{:else}
+						<span class="EventCard-empty">No Details</span>
+					{/if}
 				</div>
-
-				<!-- <button
-					class="flex flex-col items-center font-bold text-xs hover:bg-gray-200 transition"
-					style="border-top: 1px solid; border-color: inherit;"
-				>
-					View Detail
-				</button> -->
-			{:else}
-				<span
-					class="w-full text-center text-xs opacity-50"
-					style="border-top: 1px solid; border-color: inherit;">No Details</span
-				>
-			{/if}
-		{/if}
+			</div>
+		</div>
 	</div>
 {/if}
 
 <style lang="scss">
 	.EventCard {
+		width: 100%;
+		display: flex;
+		flex-direction: column;
+		align-items: stretch;
+		justify-content: flex-start;
+
+		border-radius: 0.75rem;
+
 		background: rgba(255, 255, 255, 0.6);
 		border: 1px solid;
 		border-color: hsla(204, 100%, 10%, 0.2);
 
-		& > * {
+		.EventCard-header {
+			width: 100%;
+			display: flex;
+			flex-direction: row;
 			padding: 1rem;
+			align-items: center;
+			justify-content: stretch;
+			gap: 0.725rem;
+			cursor: pointer;
 		}
+		.EventCard-expandable {
+			display: grid;
+			transition: grid-template-rows 200ms cubic-bezier(1, 0, 0, 1);
 
-		.EventCard-Details {
-			padding: 0;
-			font-size: 0.8rem;
+			.EventCard-expandable-body {
+				overflow: hidden;
 
-			& > * {
-				border-right: 1px solid;
-				border-color: inherit;
-				padding: 1rem;
+				.EventCard-Details {
+					width: 100%;
 
-				flex-basis: 100%;
-				display: flex;
-				flex-direction: column;
-				align-items: start;
-				text-align: start;
-				line-height: 1rem;
+					font-size: 1rem;
+					padding: 2rem;
+					gap: 2rem;
 
-				.title {
-					font-weight: 600;
+					display: flex;
+					flex-direction: column;
+
+					border-top: 1px solid;
+					border-color: inherit;
+					overflow: hidden;
+
+					& > * {
+						flex-basis: 100%;
+						display: flex;
+						flex-direction: column;
+						align-items: start;
+						text-align: start;
+						line-height: 1rem;
+
+						.title {
+							font-weight: 600;
+							margin-bottom: 0.5rem;
+						}
+						.subtitles {
+							display: flex;
+							flex-direction: column;
+							font-size: 0.8rem;
+						}
+					}
+
+					.EventCard-empty {
+						align-items: center;
+						text-align: center;
+						font-size: 0.75rem;
+						line-height: 1rem;
+						opacity: 0.5;
+					}
 				}
-				.subtitle {
-					font-size: 0.6rem;
-				}
-			}
-			div:last-child {
-				border: none;
 			}
 		}
 	}
 	.EventCard[isExpand='true'] {
 		background: white;
+		.EventCard-expandable {
+			grid-template-rows: 1fr;
+		}
 	}
 	.EventCard[isExpand='false'] {
+		.EventCard-expandable {
+			grid-template-rows: 0fr;
+		}
 		&:hover,
 		&:focus {
 			background: white;

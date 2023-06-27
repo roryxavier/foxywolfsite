@@ -9,6 +9,7 @@
 	import jimmy from '../assets/jimmy.webp';
 
 	import LinkList from '../model/LinkList';
+	import Label from '../model/Label';
 </script>
 
 <svelte:head>
@@ -24,9 +25,21 @@
 		style="max-width: 35rem; height: max-content; min-height: 70dvh;"
 	>
 		<div class="flex flex-row items-center justify-center gap-5">
-			<HomeHeadshot src={rory} alt="Rory Badge" href="https://rorywolf.net/" target="_blank" />
+			<HomeHeadshot
+				alt="Rory Badge"
+				src={rory}
+				labels={[new Label('Programmer')]}
+				href="https://rorywolf.net/"
+				target="_blank"
+			/>
 			<HomeHeart />
-			<HomeHeadshot src={jimmy} alt="Jimmy Badge" href="http://jimmychane.com" target="_blank" />
+			<HomeHeadshot
+				alt="Jimmy Badge"
+				src={jimmy}
+				labels={[new Label('Artist'), new Label('Programmer')]}
+				href="http://jimmychane.com"
+				target="_blank"
+			/>
 		</div>
 
 		<CardText>

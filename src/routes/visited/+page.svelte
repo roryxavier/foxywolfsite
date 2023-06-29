@@ -6,6 +6,9 @@
 	import littleisland from '../../assets/littleisland.png';
 
 	import ConEvent from '../../model/Event/ConEvent';
+	import TierEvent from '../../model/Event/TierEvent';
+	import HonorGuest from '../../model/Event/HonorGuest';
+	import Theme from '../../model/Event/Theme';
 
 	const eventSections = [
 		{
@@ -15,9 +18,17 @@
 					.setIcon(furum)
 					.setTitle('Fur Upon Malaysia - FURUM 2023')
 					.setDateTime('09-10 December 2023')
-					.setTheme('Space')
-					.setGuestOfHonor('Kékéflipnote | 2D Animation Artist')
-					.setTierInfo(['Rory: Commander(Super Sponsor)', 'Jimmy: Cadet(Standard)'])
+					.setTheme(new Theme('Space'))
+					.setHonorGuest(new HonorGuest('Kékéflipnote | 2D Animation Artist'))
+					.addRegistrationTier(
+						new TierEvent()
+							.setOwner('Rory')
+							.setName('Super Sponser')
+							.setAlternativeName('Commander')
+					)
+					.addRegistrationTier(
+						new TierEvent().setOwner('Jimmy').setName('Standard').setAlternativeName('Cadet')
+					)
 			]
 		},
 		{
@@ -27,16 +38,22 @@
 					.setIcon(littleisland)
 					.setTitle('Little Island Furcon - LIFC 2023')
 					.setDateTime('10-11 June 2023')
-					.setTheme('Swrods & Sorcery')
-					.setGuestOfHonor('Daza | Fursuit Maker')
-					.setTierInfo(['Rory: Adventure(Sponsor)', 'Jimmy: Mercenary(Attendee)']),
+					.setTheme(new Theme('Swrods & Sorcery'))
+					.setHonorGuest(new HonorGuest('Daza | Fursuit Maker'))
+					.addRegistrationTier(
+						new TierEvent().setOwner('Rory').setName('Sponsor').setAlternativeName('Adventure')
+					)
+					.addRegistrationTier(
+						new TierEvent().setOwner('Jimmy').setName('Attendee').setAlternativeName('Mercenary')
+					),
 				new ConEvent()
 					.setIcon(furum)
 					.setTitle('Fur Upon Malaysia - FURUM 2022')
 					.setDateTime('10-11 December 2022')
-					.setTheme('Con Of The Lost')
-					.setGuestOfHonor('Zephyxus (Zephy) | Furry Artist')
-					.setTierInfo(['Rory: Standard', 'Jimmy: Standard'])
+					.setTheme(new Theme('Con Of The Lost'))
+					.setHonorGuest(new HonorGuest('Zephyxus (Zephy) | Furry Artist'))
+					.addRegistrationTier(new TierEvent().setOwner('Rory').setName('Standard'))
+					.addRegistrationTier(new TierEvent().setOwner('Jimmy').setName('Standard'))
 			]
 		}
 	];

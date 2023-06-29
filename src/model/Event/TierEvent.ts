@@ -1,11 +1,18 @@
 export default class TierEvent {
-	tierName: string;
-	tierAltName: string;
-	tierOwner: string;
+	name: string = '';
+	alternativeName: string = '';
+	owner: string = '';
 
-	constructor(tierName: string, tierAltName: string, tierOwner: string) {
-		this.tierName = tierName;
-		this.tierAltName = tierAltName;
-		this.tierOwner = tierOwner;
+	setName(name: string) {
+		this.name = name;
+		return this;
+	}
+	setAlternativeName(name: string) {
+		this.alternativeName = name;
+		return this;
+	}
+	setOwner(owner: string) {
+		this.owner = owner;
+		return this;
 	}
 }

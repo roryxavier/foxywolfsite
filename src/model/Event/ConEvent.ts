@@ -1,3 +1,5 @@
+import type HonorGuest from './HonorGuest';
+import type Theme from './Theme';
 import type TierEvent from './TierEvent';
 
 export default class ConEvent {
@@ -5,53 +7,32 @@ export default class ConEvent {
 	title: String = '';
 	datetime: String = '';
 
-	theme: String = '';
-	guestOfHonor: String = '';
-	tierInfo: String | String[] = '';
+	theme: Theme | undefined;
+	honorGuest: HonorGuest | undefined;
 	tierEvents: TierEvent[] = [];
 
 	setIcon(icon: String = '') {
 		this.icon = icon;
 		return this;
 	}
-
 	setTitle(title: String = '') {
 		this.title = title;
 		return this;
 	}
-
 	setDateTime(datetime: String = '') {
 		this.datetime = datetime;
 		return this;
 	}
-
-	setTheme(theme: String = '') {
+	setTheme(theme: Theme) {
 		this.theme = theme;
 		return this;
 	}
-
-	setGuestOfHonor(guestOfHonor: String = '') {
-		this.guestOfHonor = guestOfHonor;
+	setHonorGuest(guestOfHonor: HonorGuest) {
+		this.honorGuest = guestOfHonor;
 		return this;
 	}
-
-	setTierInfo(tierInfo: String | String[] = '') {
-		this.tierInfo = tierInfo;
-		return this;
-	}
-
 	addRegistrationTier(tierEvent: TierEvent) {
 		this.tierEvents.push(tierEvent);
 		return this;
-	}
-
-	getDetails() {
-		return [
-			{ title: 'Theme', subTitle: this.theme },
-			{ title: 'Guest of Honor', subTitle: this.guestOfHonor },
-			{ title: 'Registration Tier', subTitle: this.tierInfo }
-		].filter((detail) => {
-			return detail.subTitle.length;
-		});
 	}
 }

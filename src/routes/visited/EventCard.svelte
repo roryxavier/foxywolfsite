@@ -2,10 +2,17 @@
 	import EventCardIcon from './EventCard-Icon.svelte';
 	import EventCardArrow from './EventCard-Arrow.svelte';
 	import type ConEvent from '../../model/Event/ConEvent';
+	import RegistrationTier from './EventCard-Detail-RegistrationTier.svelte';
 
 	export let conEvent: ConEvent;
 
-	let isExpand = false;
+	let isExpand = true;
+
+	let hasTheme = !!conEvent.theme;
+	let hasHonorGuest = !!conEvent.honorGuest;
+	let hasTierEvent = conEvent.tierEvents.length > 0;
+
+	let hasContents = hasTheme || hasHonorGuest || hasTierEvent;
 </script>
 
 {#if conEvent}
@@ -13,29 +20,49 @@
 		<button class="EventCard-header" on:click={() => (isExpand = !isExpand)}>
 			<EventCardIcon src={conEvent.icon} />
 
-			<div class="w-full flex flex-col items-start grow-1 justify-center text-start">
+			<div class="EventCard-title">
 				<span class="font-bold">{conEvent.title}</span>
 				<span style="font-size: 0.8rem">{conEvent.datetime}</span>
 			</div>
 
-			<EventCardArrow rotate180={isExpand} isShowing={isExpand || !!conEvent.getDetails().length} />
+			<EventCardArrow rotate180={isExpand} isShowing={isExpand || !!hasContents} />
 		</button>
 
 		<div class="EventCard-expandable">
 			<div class="EventCard-expandable-body">
 				<div class="EventCard-Details">
-					{#if conEvent.getDetails().length}
-						{#each conEvent.getDetails() as detail}
-							<div>
-								<span class="title">{detail.title}</span>
-								<div class="subtitles">
-									{#each Array.isArray(detail.subTitle) ? detail.subTitle : [detail.subTitle] as subTitle}
-										<p>{subTitle}</p>
-									{/each}
-								</div>
+					{#if hasTheme}
+						<div>
+							<span class="title">Theme</span>
+							<span class="subtitles">{conEvent.theme?.name}</span>
+						</div>
+					{/if}
+
+					{#if hasHonorGuest}
+						<div>
+							<span class="title">Guest of Honor</span>
+							{#if (conEvent.honorGuest?.href ?? '').length > 0}
+								<a class="subtitles" href={conEvent.honorGuest?.href} target="_blank"
+									>{conEvent.honorGuest?.name}</a
+								>
+							{:else}
+								<span class="subtitles">{conEvent.honorGuest?.name}</span>
+							{/if}
+						</div>
+					{/if}
+
+					{#if hasTierEvent}
+						<div>
+							<span class="title">Registration Tier</span>
+							<div class="subtitles">
+								{#each conEvent.tierEvents as tierEvent}
+									<RegistrationTier {tierEvent} />
+								{/each}
 							</div>
-						{/each}
-					{:else}
+						</div>
+					{/if}
+
+					{#if !hasContents}
 						<span class="EventCard-empty">No Details</span>
 					{/if}
 				</div>
@@ -67,6 +94,16 @@
 			justify-content: stretch;
 			gap: 0.725rem;
 			cursor: pointer;
+
+			.EventCard-title {
+				width: 100%;
+				display: flex;
+				flex-direction: column;
+				align-items: flex-start;
+				justify-content: center;
+				text-align: start;
+				flex-grow: 1;
+			}
 		}
 		.EventCard-expandable {
 			display: grid;

@@ -3,23 +3,23 @@ import type Theme from './Theme';
 import type TierEvent from './TierEvent';
 
 export default class ConEvent {
-	icon: String = '';
-	title: String = '';
-	datetime: String = '';
+	icon: string = '';
+	title: string = '';
+	datetime: string = '';
 
 	theme: Theme | undefined;
 	honorGuest: HonorGuest | undefined;
 	tierEvents: TierEvent[] = [];
 
-	setIcon(icon: String = '') {
+	setIcon(icon: string = '') {
 		this.icon = icon;
 		return this;
 	}
-	setTitle(title: String = '') {
+	setTitle(title: string = '') {
 		this.title = title;
 		return this;
 	}
-	setDateTime(datetime: String = '') {
+	setDateTime(datetime: string = '') {
 		this.datetime = datetime;
 		return this;
 	}

@@ -87,21 +87,21 @@
 	parentIsHome={`${selfHref === ''}`}
 	parentScrolledUp={`${scrollTop > 0}`}
 >
-	{#if isBackable}
-		<div class="Actionbar-ThemeButton aspect-square flex items-center justify-center">
+	<div class="Actionbar-ThemeButton">
+		{#if isBackable}
 			<BackButton isLightTheme={scrollTop <= 0} click={() => clickBack()} />
-		</div>
-	{/if}
-
-	<div class="p-4 flex flex-row grow">
-		{#if title.length}
-			<span class="text-lg font-bold">{title}</span>
 		{/if}
 	</div>
 
-	<!-- <div class="Actionbar-ThemeButton aspect-square flex items-center justify-center">
-		<ThemeButton isLightTheme={scrollTop <= 0} />
-	</div> -->
+	<div class="flex flex-row justify-center grow">
+		{#if title.length}
+			<span class="text-lg font-bold text-center overflow-hidden">{title}</span>
+		{/if}
+	</div>
+
+	<div class="Actionbar-ThemeButton">
+		<!-- <ThemeButton isLightTheme={scrollTop <= 0} /> -->
+	</div>
 </div>
 
 <style lang="scss">
@@ -117,7 +117,10 @@
 
 		.Actionbar-ThemeButton {
 			height: inherit;
-			margin-right: -1rem;
+			aspect-ratio: 1/1;
+			display: flex;
+			align-items: center;
+			justify-content: center;
 		}
 	}
 

@@ -1,8 +1,8 @@
 export default class HonorGuest {
-	name: String = '';
-	href: String = '';
+	name: string = '';
+	href: string = '';
 
-	constructor(name: String, href: String = '') {
+	constructor(name: string, href: string = '') {
 		this.name = name;
 		this.href = href;
 	}

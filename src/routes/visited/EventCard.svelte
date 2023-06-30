@@ -1,12 +1,12 @@
 <script lang="ts">
 	import EventCardIcon from './EventCard-Icon.svelte';
 	import EventCardArrow from './EventCard-Arrow.svelte';
-	import type ConEvent from '../../model/Event/ConEvent';
+	import type ConEvent from '../../model/Event/EventCon';
 	import RegistrationTier from './EventCard-Detail-RegistrationTier.svelte';
 
 	export let conEvent: ConEvent;
-
-	let isExpand = true;
+	export let isExpand = false;
+	export let onClick = () => {};
 
 	let hasTheme = !!conEvent.theme;
 	let hasHonorGuest = !!conEvent.honorGuest;
@@ -16,8 +16,8 @@
 </script>
 
 {#if conEvent}
-	<div class="EventCard" isExpand={`${isExpand}`}>
-		<button class="EventCard-header" on:click={() => (isExpand = !isExpand)}>
+	<div class="EventCard {isExpand ? 'EventCard-isExpand' : 'EventCard-isCollapse'}">
+		<button class="EventCard-header" on:click={() => onClick()}>
 			<EventCardIcon src={conEvent.icon} />
 
 			<div class="EventCard-title">
@@ -156,13 +156,13 @@
 			}
 		}
 	}
-	.EventCard[isExpand='true'] {
+	.EventCard-isExpand {
 		background: white;
 		.EventCard-expandable {
 			grid-template-rows: 1fr;
 		}
 	}
-	.EventCard[isExpand='false'] {
+	.EventCard-isCollapse {
 		.EventCard-expandable {
 			grid-template-rows: 0fr;
 		}

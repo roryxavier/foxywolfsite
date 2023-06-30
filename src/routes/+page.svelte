@@ -1,12 +1,12 @@
 <script lang="ts">
-	import CardText from '../component/CardText.svelte';
-
+	import Actionbar from '../component/Actionbar.svelte';
 	import HomeHeadshot from '../component/HomeHeadshot.svelte';
 	import HomeHeart from '../component/HomeHeart.svelte';
 	import HomeButton from '../component/HomeButton.svelte';
+	import CardText from '../component/CardText.svelte';
 
-	import rory from '../assets/rory.webp';
-	import jimmy from '../assets/jimmy.webp';
+	import rory from '../assets/rory-1.webp';
+	import jimmy from '../assets/jimmy-1.webp';
 
 	import LinkList from '../model/LinkList';
 	import Label from '../model/Label';
@@ -16,74 +16,72 @@
 	<title>Foxy & Wolf</title>
 </svelte:head>
 
-<div
-	class="w-full flex flex-col items-center justify-start"
-	style="height: max-content; min-height: 70dvh;"
->
-	<div
-		class="w-full p-6 pb-16 gap-12 flex flex-col items-center justify-center"
-		style="max-width: 35rem; height: max-content; min-height: 70dvh;"
-	>
-		<div class="flex flex-row items-center justify-center gap-5">
-			<HomeHeadshot
-				alt="Rory Badge"
-				src={rory}
-				labels={[new Label('Programmer')]}
-				href="https://rorywolf.net/"
-				target="_blank"
-			/>
-			<HomeHeart />
-			<HomeHeadshot
-				alt="Jimmy Badge"
-				src={jimmy}
-				labels={[new Label('Artist'), new Label('Programmer')]}
-				href="http://jimmychane.com"
-				target="_blank"
-			/>
-		</div>
+<div class="Home">
+	<div class="Home-body flex flex-col items-center justify-start" style="min-height: 100dvh">
+		<Actionbar />
 
-		<CardText>
-			<div class="gap-4 p-4 flex items-center text-center flex-col">
-				<p>Rory and Jimmy's Furry Memory Lane</p>
-				<p>
-					A journey celebrating our memories and milestones as a blue wolf and yellow fox furry
-					couple.
-				</p>
-				<p>Join us and create new memories!</p>
+		<div
+			class="w-full flex flex-col items-center justify-start"
+			style="height: max-content; min-height: 70dvh;"
+		>
+			<div
+				class="w-full p-6 pb-16 gap-12 flex flex-col items-center justify-center"
+				style="max-width: 35rem; height: max-content; min-height: 70dvh;"
+			>
+				<div class="flex flex-row items-center justify-center gap-5">
+					<HomeHeadshot
+						alt="Rory Badge"
+						src={rory}
+						labels={[new Label('Programmer')]}
+						href="https://rorywolf.net/"
+						target="_blank"
+					/>
+					<HomeHeart />
+					<HomeHeadshot
+						alt="Jimmy Badge"
+						src={jimmy}
+						labels={[new Label('Artist'), new Label('Programmer')]}
+						href="http://jimmychane.com"
+						target="_blank"
+					/>
+				</div>
+
+				<CardText>
+					<div class="gap-4 p-4 flex items-center text-center flex-col">
+						<p>Rory and Jimmy's Furry Memory Lane</p>
+						<p>
+							A journey celebrating our memories and milestones as a blue wolf and yellow fox furry
+							couple.
+						</p>
+						<p>Join us and create new memories!</p>
+					</div>
+				</CardText>
+
+				<div class="Buttons flex flex-row flex-wrap-reverse w-full gap-2 flex justify-center">
+					{#each LinkList.map((link) => link).reverse() as link}
+						<HomeButton title={link.title} href={link.href} />
+					{/each}
+				</div>
 			</div>
-		</CardText>
-
-		<div class="Buttons flex flex-row flex-wrap-reverse w-full gap-2 flex justify-center">
-			{#each LinkList.map((link) => link).reverse() as link}
-				<HomeButton title={link.title} href={link.href} />
-			{/each}
 		</div>
 	</div>
 </div>
 
 <style lang="scss">
-	:root {
-		@media (min-width: 700px) {
-			font-size: 17px;
+	.Home {
+		animation: gradient 15s ease infinite;
+		background-size: 400% 400%;
+		background-image: linear-gradient(90deg, #f4d668, #42c8ff);
+	}
+	@keyframes gradient {
+		0% {
+			background-position: 0% 50%;
 		}
-		@media (min-width: 800px) {
-			font-size: 18px;
+		50% {
+			background-position: 100% 50%;
 		}
-		@media (min-width: 900px) {
-			font-size: 20px;
-		}
-		@media (min-width: 1000px) {
-			font-size: 22px;
-		}
-		@media (min-width: 1100px) {
-			font-size: 26px;
-		}
-
-		@media (max-width: 500px) {
-			font-size: 15px;
-		}
-		@media (max-width: 400px) {
-			font-size: 14px;
+		100% {
+			background-position: 0% 50%;
 		}
 	}
 </style>

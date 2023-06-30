@@ -1,7 +1,7 @@
 export default class Theme {
-	name: String = '';
+	name: string = '';
 
-	constructor(name: String) {
+	constructor(name: string) {
 		this.name = name;
 	}
 }

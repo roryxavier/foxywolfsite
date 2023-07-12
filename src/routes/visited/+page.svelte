@@ -6,6 +6,7 @@
 
 	import furum from '../../assets/furum.png';
 	import littleisland from '../../assets/littleisland.png';
+	import philifur from '../../assets/philifur.png';
 
 	import ConEvent from '../../model/Event/EventCon';
 	import TierEvent from '../../model/Event/TierEvent';
@@ -15,6 +16,13 @@
 	const eventSections = [
 		new EventSectionTs(
 			'Upcoming',
+			new ConEvent()
+				.setIcon(philifur)
+				.setTitle('PhiliFUR 2023')
+				.setDateTime('23 September 2023')
+				.setTheme(new Theme('Tails and Fables'))
+				.addRegistrationTier(new TierEvent().setOwner('Rory'))
+				.addRegistrationTier(new TierEvent().setOwner('Jimmy')),
 			new ConEvent()
 				.setIcon(furum)
 				.setTitle('Fur Upon Malaysia - FURUM 2023')

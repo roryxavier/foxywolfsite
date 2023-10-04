@@ -17,13 +17,6 @@
 		new EventSectionTs(
 			'Upcoming',
 			new ConEvent()
-				.setIcon(philifur)
-				.setTitle('PhiliFUR 2023')
-				.setDateTime('23 September 2023')
-				.setTheme(new Theme('Tails and Fables'))
-				.addRegistrationTier(new TierEvent().setOwner('Rory'))
-				.addRegistrationTier(new TierEvent().setOwner('Jimmy')),
-			new ConEvent()
 				.setIcon(furum)
 				.setTitle('Fur Upon Malaysia - FURUM 2023')
 				.setDateTime('09-10 December 2023')
@@ -38,6 +31,20 @@
 		),
 		new EventSectionTs(
 			'Visited',
+			new ConEvent()
+				.setIcon(philifur)
+				.setTitle('PhiliFUR 2023')
+				.setDateTime('23 September 2023')
+				.setTheme(new Theme('Tails and Fables'))
+				.addRegistrationTier(
+					new TierEvent().setOwner('Rory').setName('Admission').setAlternativeName("Traveler' Pass")
+				)
+				.addRegistrationTier(
+					new TierEvent()
+						.setOwner('Jimmy')
+						.setName('Admission')
+						.setAlternativeName("Traveler' Pass")
+				),
 			new ConEvent()
 				.setIcon(littleisland)
 				.setTitle('Little Island Furcon - LIFC 2023')
@@ -63,7 +70,7 @@
 </script>
 
 <svelte:head>
-	<title>Con Visited</title>
+	<title>Furry Convention</title>
 </svelte:head>
 
 <div>

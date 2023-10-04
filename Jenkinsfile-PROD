@@ -1,0 +1,27 @@
+pipeline {
+    agent any
+    tools { nodejs "nodejs" }
+    environment {
+        CF_ACCOUNT_ID  = credentials('CF_ACCOUNT_ID')
+        CF_API_TOKEN   = credentials('CF_API_TOKEN')
+    }
+    stages {
+        stage('Build Website') {
+            steps {
+                // Build the website
+                script {
+                    sh 'npm install'
+                    sh 'npm run build'
+                }
+            }
+        }
+        stage('Publish the website to cloudflare') {
+            steps {
+                // Publish to cloudflare
+                script {
+                    sh 'npm run publish'
+                }
+            }
+        }
+    }
+}

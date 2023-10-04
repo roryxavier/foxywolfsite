@@ -15,7 +15,10 @@
 <div>
 	<Actionbar />
 	<div class="PageAbout-body flex flex-col items-center justify-start" style="min-height: 100dvh">
-		<div class="flex flex-col items-center justify-start p-6 gap-8" style="max-width: 35rem; padding-bottom: 20rem;">
+		<div
+			class="flex flex-col items-center justify-start p-6 gap-8"
+			style="max-width: 35rem; padding-bottom: 20rem;"
+		>
 			<img class="w-full max-w-xs rounded-xl" src={ImageHeader} alt="Header Image" />
 
 			<p class="max-w-xl">

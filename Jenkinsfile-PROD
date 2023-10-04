@@ -6,6 +6,11 @@ pipeline {
         CF_API_TOKEN   = credentials('CF_API_TOKEN')
     }
     stages {
+         stage('Set Git Branch') {
+            steps {
+                git branch: 'PROD', url: 'https://github.com/roryxavier/foxywolfsite'
+            }
+        }
         stage('Build Website') {
             steps {
                 // Build the website

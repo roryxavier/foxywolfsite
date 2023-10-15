@@ -17,11 +17,14 @@
 <style lang="scss">
 	.HomeButton {
 		flex-basis: calc(50% - 0.5rem);
+		flex-grow: 1;
 
 		background-color: hsla(0, 0%, 100%, 0.5);
 		transition: all 300ms;
 		border: 2px solid;
 		border-color: transparent;
+		display: grid;
+		place-items: center;
 
 		&:hover {
 			transform: scale(1.01);

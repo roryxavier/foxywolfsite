@@ -1,11 +1,11 @@
 <script lang="ts">
-	import EventSection from './visited/EventSection.svelte';
-	import EventCard from './visited/EventCard.svelte';
+	import EventSection from './EventSection.svelte';
+	import EventCard from './EventCard.svelte';
 
-	import furum from '../assets/furum.png';
-	import littleisland from '../assets/littleisland.png';
+	import furum from '@/assets/furum.png';
+	import littleisland from '@/assets/littleisland.png';
 
-	import ConEvent from '../ConEvent';
+	import ConEvent from '@/model/Event/EventCon';
 
 	const eventSections = [
 		{

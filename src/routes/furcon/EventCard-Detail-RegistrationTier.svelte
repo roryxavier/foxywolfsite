@@ -1,5 +1,5 @@
 <script lang="ts">
-	import type TierEvent from '../../model/Event/TierEvent';
+	import type TierEvent from '@/model/Event/TierEvent';
 
 	export let tierEvent: TierEvent;
 </script>

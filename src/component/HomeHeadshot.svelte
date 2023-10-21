@@ -1,5 +1,5 @@
 <script lang="ts">
-	import type Label from '../model/Label';
+	import type Label from '@/model/Label';
 
 	export let src: string = '';
 	export let alt: string = '';

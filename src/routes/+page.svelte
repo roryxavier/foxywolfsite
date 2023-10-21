@@ -1,15 +1,15 @@
 <script lang="ts">
-	import Actionbar from '../component/Actionbar.svelte';
-	import HomeHeadshot from '../component/HomeHeadshot.svelte';
-	import HomeHeart from '../component/HomeHeart.svelte';
-	import HomeButton from '../component/HomeButton.svelte';
-	import CardText from '../component/CardText.svelte';
+	import Actionbar from '@/component/Actionbar.svelte';
+	import HomeHeadshot from '@/component/HomeHeadshot.svelte';
+	import HomeHeart from '@/component/HomeHeart.svelte';
+	import HomeButton from '@/component/HomeButton.svelte';
+	import CardText from '@/component/CardText.svelte';
 
-	import rory from '../assets/rory-1.webp';
-	import jimmy from '../assets/jimmy-1.webp';
+	import rory from '@/assets/rory-1.webp';
+	import jimmy from '@/assets/jimmy-1.webp';
 
-	import LinkList from '../model/LinkList';
-	import Label from '../model/Label';
+	import LinkList from '@/model/LinkList';
+	import Label from '@/model/Label';
 </script>
 
 <svelte:head>

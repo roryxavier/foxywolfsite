@@ -1,7 +1,7 @@
 <script lang="ts">
 	import EventCardIcon from './EventCard-Icon.svelte';
 	import EventCardArrow from './EventCard-Arrow.svelte';
-	import type ConEvent from '../../model/Event/EventCon';
+	import type ConEvent from '@/model/Event/EventCon';
 	import RegistrationTier from './EventCard-Detail-RegistrationTier.svelte';
 
 	export let conEvent: ConEvent;

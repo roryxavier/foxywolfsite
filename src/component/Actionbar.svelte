@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
 	import BackButton from './BackButton.svelte';
-	import LinkList from '../model/LinkList';
+	import LinkList from '@/model/LinkList';
 	import { navigating } from '$app/stores';
 
 	// import ThemeButton from './ThemeButton.svelte';

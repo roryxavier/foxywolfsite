@@ -1,17 +1,17 @@
 <script lang="ts">
-	import Actionbar from '../../component/Actionbar.svelte';
-	import EventSectionTs from '../../model/Event/EventSection';
+	import Actionbar from '@/component/Actionbar.svelte';
+	import EventSectionTs from '@/model/Event/EventSection';
 
 	import EventSection from './EventSection.svelte';
 
-	import furum from '../../assets/furum.png';
-	import littleisland from '../../assets/littleisland.png';
-	import philifur from '../../assets/philifur.png';
+	import furum from '@/assets/furum.png';
+	import littleisland from '@/assets/littleisland.png';
+	import philifur from '@/assets/philifur.png';
 
-	import ConEvent from '../../model/Event/EventCon';
-	import TierEvent from '../../model/Event/TierEvent';
-	import HonorGuest from '../../model/Event/HonorGuest';
-	import Theme from '../../model/Event/Theme';
+	import ConEvent from '@/model/Event/EventCon';
+	import TierEvent from '@/model/Event/TierEvent';
+	import HonorGuest from '@/model/Event/HonorGuest';
+	import Theme from '@/model/Event/Theme';
 
 	const eventSections = [
 		new EventSectionTs(

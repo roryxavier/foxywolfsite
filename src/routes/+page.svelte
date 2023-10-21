@@ -1,5 +1,4 @@
 <script lang="ts">
-	import Actionbar from '@/component/Actionbar.svelte';
 	import HomeHeadshot from '@/component/HomeHeadshot.svelte';
 	import HomeHeart from '@/component/HomeHeart.svelte';
 	import HomeButton from '@/component/HomeButton.svelte';
@@ -18,8 +17,6 @@
 
 <div class="Home">
 	<div class="Home-body flex flex-col items-center justify-start" style="min-height: 100dvh">
-		<Actionbar />
-
 		<div
 			class="w-full flex flex-col items-center justify-start"
 			style="height: max-content; min-height: 70dvh;"
@@ -66,22 +63,3 @@
 		</div>
 	</div>
 </div>
-
-<style lang="scss">
-	.Home {
-		animation: gradient 15s ease infinite;
-		background-size: 400% 400%;
-		background-image: linear-gradient(90deg, #f4d668, #42c8ff);
-	}
-	@keyframes gradient {
-		0% {
-			background-position: 0% 50%;
-		}
-		50% {
-			background-position: 100% 50%;
-		}
-		100% {
-			background-position: 0% 50%;
-		}
-	}
-</style>

@@ -1,5 +1,4 @@
 <script lang="ts">
-	import Actionbar from '@/component/Actionbar.svelte';
 	import EventSectionTs from '@/model/Event/EventSection';
 
 	import EventSection from './EventSection.svelte';
@@ -74,8 +73,7 @@
 </svelte:head>
 
 <div>
-	<Actionbar />
-	<div class="PageCons-body flex flex-col items-center justify-start" style="min-height: 100dvh">
+	<div class="flex flex-col items-center justify-start" style="min-height: 100dvh">
 		<div
 			class="flex flex-col items-start justify-start gap-16 p-6 w-full"
 			style="max-width: 35rem; padding-bottom: 20rem;"
@@ -86,9 +84,3 @@
 		</div>
 	</div>
 </div>
-
-<style lang="scss">
-	.PageCons-body {
-		background: #eaf3f8;
-	}
-</style>

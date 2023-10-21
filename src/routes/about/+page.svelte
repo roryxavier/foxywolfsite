@@ -1,6 +1,4 @@
 <script lang="ts">
-	import Actionbar from '@/component/Actionbar.svelte';
-
 	import Section from './Section.svelte';
 	import SectionTitle from './SectionTitle.svelte';
 	import Row from './Row.svelte';
@@ -13,8 +11,7 @@
 </svelte:head>
 
 <div>
-	<Actionbar />
-	<div class="PageAbout-body flex flex-col items-center justify-start" style="min-height: 100dvh">
+	<div class="flex flex-col items-center justify-start" style="min-height: 100dvh">
 		<div
 			class="flex flex-col items-center justify-start p-6 gap-8"
 			style="max-width: 35rem; padding-bottom: 20rem;"
@@ -70,9 +67,3 @@
 		</div>
 	</div>
 </div>
-
-<style lang="scss">
-	.PageAbout-body {
-		background: #eaf3f8;
-	}
-</style>

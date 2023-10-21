@@ -11,38 +11,38 @@
 	let isBackable: boolean = false;
 	let selfHref = '';
 
-	export let onLinkChange = (href = '') => {};
+	export function onLinkChange(href = '') {}
 
-	let onSelfLinkChange = (href = '') => {
+	function onSelfLinkChange(href = '') {
 		onLinkChange(href);
 		selfHref = href;
-	};
+	}
 
-	const setTitleOfLink = (link = { title: '' }) => {
+	function setTitleOfLink(link = { title: '' }) {
 		title =
 			link && typeof link.title === 'string' && link.title.length ? link.title : 'Foxy & Wolfy';
-	};
+	}
 
-	const invalidateScrollTop = () => {
+	function invalidateScrollTop() {
 		const html: HTMLHtmlElement | null = document.querySelector('html');
 		if (html) scrollTop = html.scrollTop;
-	};
-	const getPathnames = () => {
+	}
+	function getPathnames() {
 		const { pathname } = window.location;
 		return pathname
 			.split('/')
 			.map((name) => name.trim())
 			.filter((name) => name.length > 0);
-	};
-	const invalidateBackable = () => {
+	}
+	function invalidateBackable() {
 		const pathnames = getPathnames();
 		isBackable = pathnames.length > 0;
 
 		const lastName = pathnames.length ? pathnames[pathnames.length - 1] : '';
 		const link = LinkList.find((link) => link.href === lastName);
 		setTitleOfLink(link);
-	};
-	const invalidateTitle = () => {
+	}
+	function invalidateTitle() {
 		setTimeout(() => {
 			const pathnames = getPathnames();
 			const lastName = pathnames.length ? pathnames[pathnames.length - 1] : '';
@@ -52,8 +52,8 @@
 			onSelfLinkChange(link ? link.href : '');
 			invalidateBackable();
 		}, 500);
-	};
-	const clickBack = () => {
+	}
+	function clickBack() {
 		window.open('/', '_self');
 
 		// works with svelte routing
@@ -68,7 +68,7 @@
 		// } else {
 		// 	window.open('/', '_self');
 		// }
-	};
+	}
 
 	$: if ($navigating) invalidateTitle();
 
@@ -83,9 +83,10 @@
 </script>
 
 <div
-	class="Actionbar w-full flex flex-row items-center justify-center"
-	parentIsHome={`${selfHref === ''}`}
-	parentScrolledUp={`${scrollTop > 0}`}
+	class="Actionbar
+		{selfHref === '' ? 'Actionbar-parent-is-home' : 'Actionbar-parent-is-not-home'}
+		{scrollTop > 0 ? 'Actionbar-parent-is-scrolled-up' : ''}
+		w-full flex flex-row items-center justify-center"
 >
 	<div class="Actionbar-ThemeButton">
 		{#if isBackable}
@@ -124,14 +125,14 @@
 		}
 	}
 
-	.Actionbar[parentIsHome='true'] {
+	.Actionbar-parent-is-home {
 		background: hsla(200, 60%, 97%, 0.2);
 	}
-	.Actionbar[parentIsHome='false'] {
+	.Actionbar-parent-is-not-home {
 		background: white;
 	}
 
-	.Actionbar[parentScrolledUp='true'] {
+	.Actionbar-parent-is-scrolled-up {
 		color: white;
 		background: hsla(0, 0%, 0%, 0.98);
 	}

@@ -1,15 +1,41 @@
 <script lang="ts">
-	import '../app.css';
+	import Actionbar from '@/component/Actionbar.svelte';
+	import '@/app.css';
 	import { onMount } from 'svelte';
 	import { fade } from 'svelte/transition';
+	import { navigating } from '$app/stores';
+	import LinkList from '@/model/LinkList';
 
 	let show = false;
+	let selfHref = '';
 
-	onMount(() => (show = true));
+	onMount(() => {
+		show = true;
+		onSelfLinkChange();
+	});
+
+	function onSelfLinkChange() {
+		const pathnames = window.location.pathname
+			.split('/')
+			.map((name) => name.trim())
+			.filter((name) => name.length > 0);
+		const lastName = pathnames.length ? pathnames[pathnames.length - 1] : '';
+		const link = LinkList.find((link) => link.href === lastName);
+
+		selfHref = link ? link.href : '';
+	}
+
+	$: if ($navigating) {
+		setTimeout(() => onSelfLinkChange(), 500);
+	}
 </script>
 
 {#if show}
-	<div class="App" transition:fade={{ delay: 250, duration: 1500 }}>
+	<div
+		class="App {selfHref === '' ? 'App-animate-background' : ''}"
+		transition:fade={{ delay: 250, duration: 1500 }}
+	>
+		<Actionbar />
 		<slot />
 	</div>
 {/if}
@@ -48,5 +74,23 @@
 		flex-direction: column;
 		align-items: stretch;
 		justify-content: stretch;
+		background: #eaf3f8;
+	}
+
+	.App-animate-background {
+		animation: gradient 15s ease infinite;
+		background-size: 400% 400%;
+		background-image: linear-gradient(90deg, #f4d668, #42c8ff);
+	}
+	@keyframes gradient {
+		0% {
+			background-position: 0% 50%;
+		}
+		50% {
+			background-position: 100% 50%;
+		}
+		100% {
+			background-position: 0% 50%;
+		}
 	}
 </style>

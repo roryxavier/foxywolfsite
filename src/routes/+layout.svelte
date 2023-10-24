@@ -5,6 +5,7 @@
 	import { fade } from 'svelte/transition';
 	import { navigating } from '$app/stores';
 	import LinkList from '@/model/LinkList';
+	import OgImage from '@/assets/kanotsu_moon-HalfBody+SPStyle+1Char+Backdrop(30-06-2022) w520h416.png';
 
 	let show = false;
 	let selfHref = '';
@@ -29,6 +30,27 @@
 		setTimeout(() => onSelfLinkChange(), 500);
 	}
 </script>
+
+<svelte:head>
+	<!-- Twitter Meta -->
+	<meta name="twitter:title" content="Foxy Wolf" />
+	<meta name="twitter:image" content={OgImage} />
+	<meta
+		name="twitter:description"
+		content="A journey celebrating our memories and milestones as a blue wolf and yellow fox furry couple"
+	/>
+
+	<!-- Meta -->
+	<meta name="title" property="og:title" content="Foxy Wolf" />
+	<meta name="type" property="og:type" content="website" />
+	<meta name="image" property="og:image" content={OgImage} />
+	<meta name="url" property="og:url" content="https://foxywolf.net" />
+	<meta
+		name="description"
+		property="og:description"
+		content="A journey celebrating our memories and milestones as a blue wolf and yellow fox furry couple"
+	/>
+</svelte:head>
 
 {#if show}
 	<div

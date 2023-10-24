@@ -1,6 +1,6 @@
 <script lang="ts">
-	import type ConEvent from '../../model/Event/EventCon';
-	import type EventSection from '../../model/Event/EventSection';
+	import type ConEvent from '@/model/Event/EventCon';
+	import type EventSection from '@/model/Event/EventSection';
 
 	import EventCard from './EventCard.svelte';
 

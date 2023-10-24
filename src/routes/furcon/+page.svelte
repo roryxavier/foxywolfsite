@@ -1,17 +1,16 @@
 <script lang="ts">
-	import Actionbar from '../../component/Actionbar.svelte';
-	import EventSectionTs from '../../model/Event/EventSection';
+	import EventSectionTs from '@/model/Event/EventSection';
 
 	import EventSection from './EventSection.svelte';
 
-	import furum from '../../assets/furum.png';
-	import littleisland from '../../assets/littleisland.png';
-	import philifur from '../../assets/philifur.png';
+	import furum from '@/assets/furum.png';
+	import littleisland from '@/assets/littleisland.png';
+	import philifur from '@/assets/philifur.png';
 
-	import ConEvent from '../../model/Event/EventCon';
-	import TierEvent from '../../model/Event/TierEvent';
-	import HonorGuest from '../../model/Event/HonorGuest';
-	import Theme from '../../model/Event/Theme';
+	import ConEvent from '@/model/Event/EventCon';
+	import TierEvent from '@/model/Event/TierEvent';
+	import HonorGuest from '@/model/Event/HonorGuest';
+	import Theme from '@/model/Event/Theme';
 
 	const eventSections = [
 		new EventSectionTs(
@@ -74,8 +73,7 @@
 </svelte:head>
 
 <div>
-	<Actionbar />
-	<div class="PageCons-body flex flex-col items-center justify-start" style="min-height: 100dvh">
+	<div class="flex flex-col items-center justify-start" style="min-height: 100dvh">
 		<div
 			class="flex flex-col items-start justify-start gap-16 p-6 w-full"
 			style="max-width: 35rem; padding-bottom: 20rem;"
@@ -86,9 +84,3 @@
 		</div>
 	</div>
 </div>
-
-<style lang="scss">
-	.PageCons-body {
-		background: #eaf3f8;
-	}
-</style>

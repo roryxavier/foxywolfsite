@@ -7,6 +7,8 @@ export default class ConEvent {
 	title: string = '';
 	datetime: string = '';
 
+	link: string = '';
+
 	theme: Theme | undefined;
 	honorGuest: HonorGuest | undefined;
 	tierEvents: TierEvent[] = [];
@@ -33,6 +35,10 @@ export default class ConEvent {
 	}
 	addRegistrationTier(tierEvent: TierEvent) {
 		this.tierEvents.push(tierEvent);
+		return this;
+	}
+	setLink(link: string) {
+		this.link = link;
 		return this;
 	}
 }

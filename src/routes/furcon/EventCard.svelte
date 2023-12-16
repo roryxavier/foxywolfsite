@@ -8,11 +8,12 @@
 	export let isExpand = false;
 	export let onClick = () => {};
 
+	let hasLink = !!conEvent.link;
 	let hasTheme = !!conEvent.theme;
 	let hasHonorGuest = !!conEvent.honorGuest;
 	let hasTierEvent = conEvent.tierEvents.length > 0;
 
-	let hasContents = hasTheme || hasHonorGuest || hasTierEvent;
+	let hasContents = hasLink || hasTheme || hasHonorGuest || hasTierEvent;
 </script>
 
 {#if conEvent}
@@ -31,6 +32,13 @@
 		<div class="EventCard-expandable">
 			<div class="EventCard-expandable-body">
 				<div class="EventCard-Details">
+					{#if hasLink}
+						<div>
+							<span class="title">Link</span>
+							<a class="subtitles" target="_blank" href={conEvent.link}>{conEvent.link}</a>
+						</div>
+					{/if}
+
 					{#if hasTheme}
 						<div>
 							<span class="title">Theme</span>

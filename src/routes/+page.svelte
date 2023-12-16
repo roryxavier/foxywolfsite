@@ -4,8 +4,8 @@
 	import HomeButton from '@/component/HomeButton.svelte';
 	import CardText from '@/component/CardText.svelte';
 
-	import rory from '@/assets/rory-1.webp';
-	import jimmy from '@/assets/jimmy-1.webp';
+	import rory from '@/assets/pfp/rory.webp';
+	import jimmy from '@/assets/pfp/jimmy.webp';
 
 	import LinkList from '@/model/LinkList';
 	import Label from '@/model/Label';

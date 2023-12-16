@@ -3,9 +3,10 @@
 
 	import EventSection from './EventSection.svelte';
 
-	import furum from '@/assets/furum.png';
-	import littleisland from '@/assets/littleisland.png';
-	import philifur from '@/assets/philifur.png';
+	import iwag from '@/assets/furcon/iwag.ico';
+	import furum from '@/assets/furcon/furum.png';
+	import littleisland from '@/assets/furcon/littleisland.png';
+	import philifur from '@/assets/furcon/philifur.png';
 
 	import ConEvent from '@/model/Event/EventCon';
 	import TierEvent from '@/model/Event/TierEvent';
@@ -14,7 +15,18 @@
 
 	const eventSections = [
 		new EventSectionTs(
-			'Upcoming',
+			'Next?',
+			new ConEvent()
+				.setIcon(iwag)
+				.setTitle('Indonesia Weekend Anthro Gathering - IWAG 2024')
+				.setDateTime('13-14 July 2024')
+				.setLink('https://iwag.furries.id/')
+				.setTheme(new Theme('Beach'))
+				.addRegistrationTier(new TierEvent().setOwner('Rory'))
+				.addRegistrationTier(new TierEvent().setOwner('Jimmy'))
+		),
+		new EventSectionTs(
+			'Visited',
 			new ConEvent()
 				.setIcon(furum)
 				.setTitle('Fur Upon Malaysia - FURUM 2023')
@@ -26,10 +38,7 @@
 				)
 				.addRegistrationTier(
 					new TierEvent().setOwner('Jimmy').setName('Standard').setAlternativeName('Cadet')
-				)
-		),
-		new EventSectionTs(
-			'Visited',
+				),
 			new ConEvent()
 				.setIcon(philifur)
 				.setTitle('PhiliFUR 2023')

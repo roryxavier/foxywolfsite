@@ -5,7 +5,7 @@
 	import { fade } from 'svelte/transition';
 	import { navigating } from '$app/stores';
 	import LinkList from '@/model/LinkList';
-	import OgImage from '@/assets/kanotsu_moon-HalfBody+SPStyle+1Char+Backdrop(30-06-2022) w520h416.png';
+	import OgImage from '@/assets/together-w520h416.png';
 
 	let show = false;
 	let selfHref = '';
@@ -66,7 +66,7 @@
 	@import url(https://fonts.bunny.net/css?family=montserrat:500);
 
 	:root {
-		font-family: 'Montserrat', sans-serif;
+		font-family: system-ui, 'Montserrat', sans-serif;
 
 		@media (min-width: 700px) {
 			font-size: 17px;

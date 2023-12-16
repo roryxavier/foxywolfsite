@@ -1,5 +1,5 @@
 <script lang="ts">
-	import Arrow from '@/assets/arrow-002035.svg';
+	import Arrow from '@/assets/icon/arrow-002035.svg';
 
 	export let rotate180: Boolean = false;
 	export let isShowing: Boolean = true;

@@ -1,5 +1,5 @@
 <script lang="ts">
-	import externalIcon from '@/assets/external-000000.svg';
+	import externalIcon from '@/assets/icon/external-000000.svg';
 
 	export let menu: { title: string; icon?: string; href?: string } = { title: '' };
 </script>

@@ -3,7 +3,7 @@
 	import SectionTitle from './SectionTitle.svelte';
 	import Row from './Row.svelte';
 
-	import ImageHeader from '@/assets/kanotsu_moon-HalfBody+SPStyle+1Char+Backdrop(30-06-2022) w520h416.png';
+	import ImageHeader from '@/assets/together-w520h416.png';
 </script>
 
 <svelte:head>

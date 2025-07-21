@@ -6,7 +6,7 @@
 
 {#if typeof menu.href === 'string'}
 	<a class="RowMenu" target="_blank" rel="noreferrer" href={menu.href}
-		>{menu.title}<img src={externalIcon} /></a
+		>{menu.title}<img src={externalIcon} alt="External Link Icon" /></a
 	>
 {:else}
 	<button class="RowMenu">{menu.title}</button>

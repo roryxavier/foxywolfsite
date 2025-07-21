@@ -11,16 +11,15 @@
 	let isBackable: boolean = false;
 	let selfHref = '';
 
-	export function onLinkChange(href = '') {}
+	export function onLinkChange(href = ''): void {}
 
-	function onSelfLinkChange(href = '') {
+	function onSelfLinkChange(href = ''): void {
 		onLinkChange(href);
 		selfHref = href;
 	}
 
-	function setTitleOfLink(link = { title: '' }) {
-		title =
-			link && typeof link.title === 'string' && link.title.length ? link.title : 'Foxy & Wolfy';
+	function setTitleOfLink(link = { title: '' }): void {
+		title = link.title.length ? link.title : 'Foxy & Wolfy v0.0.2'; // TODO: track package version automatically
 	}
 
 	function invalidateScrollTop() {

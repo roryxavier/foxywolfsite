@@ -1,5 +1,5 @@
 <script lang="ts">
-	export let src: String = '';
+	export let src: string = '';
 </script>
 
 <img

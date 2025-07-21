@@ -6,6 +6,9 @@
 	import littleisland from '@/assets/littleisland.png';
 
 	import ConEvent from '@/model/Event/EventCon';
+	import Theme from '@/model/Event/Theme';
+	import HonorGuest from '@/model/Event/HonorGuest';
+	import TierEvent from '@/model/Event/TierEvent';
 
 	const eventSections = [
 		{
@@ -15,9 +18,9 @@
 					.setIcon(littleisland)
 					.setTitle('Little Island Furcon - LIFC')
 					.setDateTime('10-11 June 2022')
-					.setTheme('Swrods & Sorcery')
-					.setGuestOfHonor('Daza | Fursuit Maker')
-					.setRegistrationTier('Hero | Super Sponser'),
+					.setTheme(new Theme('Swrods & Sorcery'))
+					.setHonorGuest(new HonorGuest('Daza | Fursuit Maker'))
+					.addRegistrationTier(new TierEvent().setName('Hero | Super Sponser')),
 				new ConEvent().setIcon(furum).setTitle('Fur Upon Malaysia - FURUM').setDateTime('2023')
 			]
 		},
@@ -52,7 +55,7 @@
 			<h2 class="w-full text-3xl font-bold" style="color: #002035">Con Visited</h2>
 
 			{#each eventSections as eventSection}
-				<EventSection title={eventSection.title}>
+				<EventSection {eventSection}>
 					{#each eventSection.events as con}
 						<EventCard conEvent={con} />
 					{/each}

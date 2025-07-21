@@ -6,7 +6,6 @@
 	export let href: string = '';
 	export let target: string = '';
 	export let labels: Label[] = [];
-	export let labelIconOnly: boolean = false;
 </script>
 
 <!-- <img {src} {alt} class="Headshot w-48 rounded-3xl shadow-lg rounded-full" /> -->

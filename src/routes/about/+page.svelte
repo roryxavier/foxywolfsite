@@ -3,7 +3,7 @@
 	import SectionTitle from './SectionTitle.svelte';
 	import Row from './Row.svelte';
 
-	import ImageHeader from '@/assets/together-w520h416.png';
+	import TOGETHER_PNG from '@/assets/together-w520h416.png';
 </script>
 
 <svelte:head>
@@ -16,7 +16,7 @@
 			class="flex flex-col items-center justify-start p-6 gap-8"
 			style="max-width: 35rem; padding-bottom: 20rem;"
 		>
-			<img class="w-full max-w-xs rounded-xl" src={ImageHeader} alt="Header Image" />
+			<img class="w-full max-w-xs rounded-xl" src={TOGETHER_PNG} alt="Together" />
 
 			<p class="max-w-xl">
 				Hello, I'm Rory, a blue wolf, and right next to me is Jimmy, a yellow fox. We have been

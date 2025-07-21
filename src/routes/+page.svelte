@@ -54,7 +54,7 @@
 					</div>
 				</CardText>
 
-				<div class="Buttons flex flex-row flex-wrap-reverse w-full gap-2 flex justify-center">
+				<div class="Buttons flex flex-row flex-wrap-reverse w-full gap-2 justify-center">
 					{#each LinkList.map((link) => link).reverse() as link}
 						<HomeButton title={link.title} href={link.href} />
 					{/each}

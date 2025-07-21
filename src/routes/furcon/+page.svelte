@@ -13,6 +13,8 @@
 	import HonorGuest from '@/model/Event/HonorGuest';
 	import Theme from '@/model/Event/Theme';
 
+	// TODO: add event
+	// TODO: refactor for better modularity
 	const eventSections = [
 		new EventSectionTs(
 			'Next?',

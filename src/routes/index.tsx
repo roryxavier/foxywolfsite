@@ -3,11 +3,15 @@ import AnimatedBg from "@/components/AnimatedBg.tsx";
 
 export const Route = createFileRoute("/")({
 	component: App,
+  staticData:{
+
+  }
 });
 
 function App() {
 	return (
 		<AnimatedBg>
+      <title>Foxes Are Sleeping</title>
 			<div
 				className="
       min-h-screen // Make the div take up the full viewport height

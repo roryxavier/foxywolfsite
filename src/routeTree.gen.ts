@@ -10,43 +10,43 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
-import { Route as CountFoxRouteImport } from './routes/count/fox'
+import { Route as ClockFoxRouteImport } from './routes/clock/fox'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
-const CountFoxRoute = CountFoxRouteImport.update({
-  id: '/count/fox',
-  path: '/count/fox',
+const ClockFoxRoute = ClockFoxRouteImport.update({
+  id: '/clock/fox',
+  path: '/clock/fox',
   getParentRoute: () => rootRouteImport,
 } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
-  '/count/fox': typeof CountFoxRoute
+  '/clock/fox': typeof ClockFoxRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
-  '/count/fox': typeof CountFoxRoute
+  '/clock/fox': typeof ClockFoxRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
-  '/count/fox': typeof CountFoxRoute
+  '/clock/fox': typeof ClockFoxRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/count/fox'
+  fullPaths: '/' | '/clock/fox'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/count/fox'
-  id: '__root__' | '/' | '/count/fox'
+  to: '/' | '/clock/fox'
+  id: '__root__' | '/' | '/clock/fox'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
-  CountFoxRoute: typeof CountFoxRoute
+  ClockFoxRoute: typeof ClockFoxRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -58,11 +58,11 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/count/fox': {
-      id: '/count/fox'
-      path: '/count/fox'
-      fullPath: '/count/fox'
-      preLoaderRoute: typeof CountFoxRouteImport
+    '/clock/fox': {
+      id: '/clock/fox'
+      path: '/clock/fox'
+      fullPath: '/clock/fox'
+      preLoaderRoute: typeof ClockFoxRouteImport
       parentRoute: typeof rootRouteImport
     }
   }
@@ -70,7 +70,7 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
-  CountFoxRoute: CountFoxRoute,
+  ClockFoxRoute: ClockFoxRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

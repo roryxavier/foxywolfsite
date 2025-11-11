@@ -3,13 +3,14 @@ import AnimatedBg from "@/components/AnimatedBg.tsx";
 import { Countup } from "@/components/Countup.tsx";
 import { TextEffect } from "@/components/TextEffect.tsx";
 
-export const Route = createFileRoute("/count/fox")({
+export const Route = createFileRoute("/clock/fox")({
 	component: RouteComponent,
 });
 
 function RouteComponent() {
 	return (
 		<>
+      <title>Foxes Clock</title>
 			<AnimatedBg>
 				<div
 					className="
@@ -79,5 +80,5 @@ function RouteComponent() {
 				</div>
 			</AnimatedBg>
 		</>
-	);
+	)
 }

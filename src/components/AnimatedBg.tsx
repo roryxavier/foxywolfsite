@@ -1,10 +1,10 @@
 // src/components/AnimatedGradient.jsx
 
+import { Component, type ReactNode } from "react";
 import styles from "../AnimatedGradient.module.css";
-import { Component } from "react";
 
 class AnimatedGradient extends Component<{
-	children: any;
+	children: ReactNode;
 	fromColor: string;
 	viaColor: string;
 	toColor: string;
@@ -16,7 +16,7 @@ class AnimatedGradient extends Component<{
 	};
 
 	render() {
-		let {
+		const {
 			children, // Destructure the children prop
 			fromColor,
 			viaColor,

@@ -1,4 +1,4 @@
-export const NumberBadge = (props: any) => {
+export const NumberBadge = (props: { text: string | number }) => {
 	return (
 		<div
 			className={`

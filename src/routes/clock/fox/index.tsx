@@ -10,7 +10,7 @@ export const Route = createFileRoute("/clock/fox/")({
 function RouteComponent() {
 	return (
 		<>
-      <title>Foxes Clock</title>
+			<title>Foxes Clock</title>
 			<AnimatedBg>
 				<div
 					className="
@@ -80,5 +80,5 @@ function RouteComponent() {
 				</div>
 			</AnimatedBg>
 		</>
-	)
+	);
 }

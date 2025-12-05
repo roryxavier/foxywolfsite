@@ -1,6 +1,6 @@
-import { NumberBadge } from "@/components/NumberBadge.tsx";
 import { DateTime } from "luxon";
 import { useEffect, useState } from "react";
+import { NumberBadge } from "@/components/NumberBadge.tsx";
 
 export const Countup = (props: {
 	year: number;
@@ -47,7 +47,7 @@ export const Countup = (props: {
 
 		// CLEANUP
 		return () => clearInterval(intervalId);
-	}, [props.year, props.month, props.day, props.hour, props.minute]);
+	}, [props.year, props.month, props.day, props.hour, props.minute, isLoaded]);
 
 	// --- New Tailwind Logic Starts Here ---
 

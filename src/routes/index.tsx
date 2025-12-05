@@ -3,15 +3,13 @@ import AnimatedBg from "@/components/AnimatedBg.tsx";
 
 export const Route = createFileRoute("/")({
 	component: App,
-  staticData:{
-
-  }
+	staticData: {},
 });
 
 function App() {
 	return (
 		<AnimatedBg>
-      <title>Foxes Are Sleeping</title>
+			<title>Foxes Are Sleeping</title>
 			<div
 				className="
       min-h-screen // Make the div take up the full viewport height
@@ -29,8 +27,8 @@ function App() {
         text-center   // Ensure text is centered inside the paragraph box
       "
 				>
-					<p className="text-white">Foxes Are Sleeping</p>
-					<p>💛🧡</p>
+					<span className="text-white">Foxes Are Sleeping</span>
+					<span>💛🧡</span>
 				</p>
 			</div>
 		</AnimatedBg>

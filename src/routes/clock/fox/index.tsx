@@ -3,7 +3,7 @@ import AnimatedBg from "@/components/AnimatedBg.tsx";
 import { Countup } from "@/components/Countup.tsx";
 import { TextEffect } from "@/components/TextEffect.tsx";
 
-export const Route = createFileRoute("/clock/fox")({
+export const Route = createFileRoute("/clock/fox/")({
 	component: RouteComponent,
 });
 

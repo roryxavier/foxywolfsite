@@ -1,4 +1,4 @@
-export function NotFoundComponent() {
+export function NotFoundPage() {
 	return (
 		<>
 			<title>404 - Page Not Found</title>

@@ -1,12 +1,9 @@
 import { createRouter, RouterProvider } from "@tanstack/react-router";
 import { StrictMode } from "react";
 import ReactDOM from "react-dom/client";
-
-// Import the generated route tree
 import { routeTree } from "./routeTree.gen";
-
-import "./styles.css";
-import { NotFoundComponent } from "@/components/NotFoundPageComponent.tsx";
+import "./main.css";
+import { NotFoundPage } from "./pages/not-found/not-found.page";
 
 // Create a new router instance
 const router = createRouter({
@@ -16,7 +13,7 @@ const router = createRouter({
 	scrollRestoration: true,
 	defaultStructuralSharing: true,
 	defaultPreloadStaleTime: 0,
-	defaultNotFoundComponent: NotFoundComponent,
+	defaultNotFoundComponent: NotFoundPage,
 });
 
 // Register the router instance for type safety

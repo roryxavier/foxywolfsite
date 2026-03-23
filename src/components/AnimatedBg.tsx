@@ -1,7 +1,7 @@
 // src/components/AnimatedGradient.jsx
 
 import { Component, type ReactNode } from "react";
-import styles from "../AnimatedGradient.module.css";
+import styles from "./AnimatedBg.module.css";
 
 class AnimatedGradient extends Component<{
 	children: ReactNode;

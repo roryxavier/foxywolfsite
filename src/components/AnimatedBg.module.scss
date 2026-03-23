@@ -1,0 +1,47 @@
+/* src/components/AnimatedGradient.module.css */
+
+/* 1. Define the Keyframes */
+@keyframes gradient-shift {
+  0% {
+    background-position: 0 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0 50%;
+  }
+}
+
+.animated-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  min-width: 100%;
+  max-width: 100%;
+  height: 100lvh;
+  min-height: 100lvh;
+  max-height: 100lvh;
+
+  display: flex;
+
+  overflow: hidden;
+
+  pointer-events: none;
+  user-select: none;
+
+  & > div {
+    width: 100%;
+    min-width: 100%;
+    max-width: 100%;
+    height: 100lvh;
+    min-height: 100lvh;
+    max-height: 100lvh;
+
+    display: flex;
+
+    animation: gradient-shift 30s ease infinite;
+  }
+}

@@ -1,0 +1,30 @@
+.app-actionbar {
+  --height: 4rem;
+
+  width: 100%;
+  min-width: 100%;
+  max-width: 100%;
+  height: var(--height);
+  min-height: var(--height);
+  max-height: var(--height);
+
+  position: sticky;
+  top: 0;
+  left: 0;
+
+  font-size: 1rem;
+  padding-inline: 1em;
+  gap: 1em;
+
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+
+  background: rgba(0, 0, 0, 0.1);
+
+  & > * {
+    font-size: 1em;
+    font-weight: 600;
+  }
+}
